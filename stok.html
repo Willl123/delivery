@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stok Bahan Ajar - SITTA</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/data.js" defer></script>
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+    <header class="dashboard-header">
+        <div class="header-brand">
+            <div class="brand-logo">
+                <img src="assets/logo-ut-small-transparent-300x226.png" alt="Logo Universitas Terbuka">
+            </div>
+            <div>
+                <h1>SITTA</h1>
+                <p>Sistem Informasi Tiras dan Transaksi Bahan Ajar</p>
+            </div>
+        </div>
+        <button type="button" id="logoutBtn" class="btn-logout">Logout</button>
+    </header>
+
+    <nav class="dashboard-nav">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="tracking.html">Tracking DO</a>
+        <a href="stok.html" class="active">Stok Bahan Ajar</a>
+    </nav>
+
+    <!-- KONTEN UTAMA -->
+    <main class="dashboard-content">
+
+        <section class="content-card">
+
+            <!-- JUDUL HALAMAN -->
+            <div class="stok-heading">
+                <div>
+                    <h2>Katalog Bahan Ajar</h2>
+                    <p>
+                        Daftar koleksi bahan ajar Universitas Terbuka
+                        beserta informasi ketersediaan stok.
+                    </p>
+                </div>
+            </div>
+
+
+            <!-- PENCARIAN DAN FILTER -->
+            <div class="stok-filter">
+
+                <div class="form-group">
+                    <label for="cariBahan">Cari Bahan Ajar</label>
+
+                    <input type="search" id="cariBahan" placeholder="Cari kode, nama, atau lokasi bahan ajar...">
+                </div>
+
+                <div class="form-group">
+                    <label for="filterJenis">Filter Jenis Barang</label>
+
+                    <select id="filterJenis">
+                        <option value="">Semua Jenis</option>
+                    </select>
+                </div>
+
+            </div>
+
+
+            <!-- JUMLAH DATA -->
+            <div class="stok-result">
+                <h3>Daftar Koleksi Buku</h3>
+                <p id="jumlahData">Memuat data bahan ajar...</p>
+            </div>
+
+
+            <!-- KARTU BUKU DARI JAVASCRIPT -->
+            <div id="tabelStok" class="book-grid">
+                <!-- Kartu buku dibuat otomatis oleh script.js -->
+            </div>
+
+
+            <!-- PESAN PENCARIAN -->
+            <p id="pesanStok" class="tracking-message" role="status" aria-live="polite"></p>
+
+        </section>
+
+        <!-- FORM TAMBAH BAHAN AJAR -->
+
+        <section class="tambah-stok-section">
+            <h3>Tambah Bahan Ajar Baru</h3>
+            <p>Isi formulir berikut untuk menambahkan koleksi bahan ajar.</p>
+
+            <form id="formTambahStok">
+                <div class="tambah-stok-grid">
+
+                    <div class="form-group">
+                        <label for="kodeLokasiBaru">Kode Lokasi</label>
+                        <input type="text" id="kodeLokasiBaru" placeholder="Contoh: 0TMP01" required
+                            oninvalid="this.setCustomValidity('Form tidak boleh kosong!')"
+                            oninput="this.setCustomValidity('')">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="kodeBarangBaru">Kode Barang</label>
+                        <input type="text" id="kodeBarangBaru" placeholder="Contoh: ASIP4301" required
+                            oninvalid="this.setCustomValidity('Form tidak boleh kosong!')"
+                            oninput="this.setCustomValidity('')">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="namaBarangBaru">Nama Bahan Ajar</label>
+                        <input type="text" id="namaBarangBaru" placeholder="Masukkan nama bahan ajar" required
+                            oninvalid="this.setCustomValidity('Form tidak boleh kosong!')"
+                            oninput="this.setCustomValidity('')">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="jenisBarangBaru">Jenis Barang</label>
+                        <input type="text" id="jenisBarangBaru" placeholder="Contoh: BMP" required
+                            oninvalid="this.setCustomValidity('Form tidak boleh kosong!')"
+                            oninput="this.setCustomValidity('')">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="edisiBaru">Edisi</label>
+                        <input type="text" id="edisiBaru" placeholder="Contoh: 2" required
+                            oninvalid="this.setCustomValidity('Form tidak boleh kosong!')"
+                            oninput="this.setCustomValidity('')">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="stokBaru">Jumlah Stok</label>
+                        <input type="number" id="stokBaru" min="0" step="1" placeholder="Masukkan jumlah stok" required
+                            oninvalid="this.setCustomValidity('Form tidak boleh kosong!')"
+                            oninput="this.setCustomValidity('')">
+                    </div>
+
+                    <div class="form-group cover-input-group">
+                        <label for="coverBaru">Path Cover Buku</label>
+                        <input type="text" id="coverBaru" placeholder="Contoh: assets/img/cover-buku.jpg" required
+                            oninvalid="this.setCustomValidity('Form tidak boleh kosong!')"
+                            oninput="this.setCustomValidity('')">
+                        <small>Masukkan lokasi file gambar cover.</small>
+                    </div>
+
+                </div>
+
+                <button type="submit" class="btn-tambah-stok">
+                    + Tambah Bahan Ajar
+                </button>
+
+                <p id="pesanTambahStok" role="status" aria-live="polite"></p>
+            </form>
+        </section>
+        <!-- Pop-up Konfirmasi Logout -->
+        <div id="popupLogout" class="popup-overlay">
+            <div class="popup-box">
+                <h3>Konfirmasi Logout</h3>
+                <p>Apakah Anda yakin ingin logout?</p>
+
+                <div class="popup-buttons">
+                    <button id="batalLogout" class="btn-batal">
+                        Batalkan
+                    </button>
+
+                    <button id="konfirmasiLogout" class="btn-konfirmasi">
+                        Logout
+                    </button>
+                </div>
+            </div>
+        </div>
+            <div id="popupBerhasil" class="popup-overlay">
+            <div class="popup-box">
+                <h3>Berhasil!</h3>
+                <p>Buku telah berhasil ditambahkan.</p>
+                <button id="tutupPopup" type="button">OK</button>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login SITTA - Universitas Terbuka</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/data.js" defer></script>
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+    <main class="login-container">
+        <section class="login-card">
+            <h1>SITTA</h1>
+            <p>Sistem Informasi Tiras dan Transaksi Bahan Ajar</p>
+
+            <h2>Login</h2>
+
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Masukkan email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Masukkan password" required>
+                </div>
+
+                <button type="submit" class="btn-primary">
+                    Login
+                </button>
+            </form>
+
+            <div class="login-links">
+                <button type="button" id="forgotBtn">
+                    Lupa Password?
+                </button>
+
+                <button type="button" id="registerBtn">
+                    Daftar
+                </button>
+            </div>
+
+            <!-- popup Lupa Password -->
+            <div class="modal-overlay" id="forgotModal" hidden>
+                <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="forgotTitle">
+                    <button type="button" class="modal-close" data-close="forgotModal"
+                        aria-label="Tutup">&times;</button>
+
+                    <h2 id="forgotTitle">Lupa Password</h2>
+                    <p>Masukkan email akun SITTA kamu untuk memeriksa data pengguna.</p>
+
+                    <form id="forgotForm">
+                        <div class="form-group">
+                            <label for="forgotEmail">Email</label>
+                            <input type="email" id="forgotEmail" placeholder="nama@ut.ac.id" required>
+                        </div>
+
+                        <button type="submit" class="btn-primary">Periksa Email</button>
+                        <p id="forgotMessage" class="modal-message" role="status"></p>
+
+                        <p id="forgotMessage" class="modal-message" role="status"></p>
+
+
+                    </form>
+                </div>
+            </div>
+
+            <!-- popup Daftar -->
+            <div class="modal-overlay" id="registerModal" hidden>
+                <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="registerTitle">
+                    <button type="button" class="modal-close" data-close="registerModal"
+                        aria-label="Tutup">&times;</button>
+
+                    <h2 id="registerTitle">Daftar Akun</h2>
+                    <p>Isi data berikut untuk simulasi pendaftaran akun SITTA.</p>
+
+                    <form id="registerForm">
+                        <div class="form-group">
+                            <label for="registerName">Nama Lengkap</label>
+                            <input type="text" id="registerName" placeholder="Masukkan nama lengkap" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="registerEmail">Email</label>
+                            <input type="email" id="registerEmail" placeholder="nama@ut.ac.id" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="registerPassword">Password</label>
+                            <input type="password" id="registerPassword" placeholder="Minimal 6 karakter" minlength="6"
+                                required>
+                        </div>
+
+                        <button type="submit" class="btn-primary">Daftar</button>
+                        <p id="registerMessage" class="modal-message" role="status"></p>
+
+                        <button type="button" class="btn-primary btn-keluar" data-close="registerModal"
+                            id="registerKeluar" hidden>
+                            Keluar
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

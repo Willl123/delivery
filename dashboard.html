@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard SITTA</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/data.js" defer></script>
+    <script src="js/script.js" defer></script>
+</head>
+
+<body class="dashboard-page">
+
+    <!-- HEADER -->
+    <header class="dashboard-header">
+        <div class="header-brand">
+            <div class="brand-logo">
+                <img src="assets/logo-ut-small-transparent-300x226.png" alt="Logo Universitas Terbuka">
+            </div>
+            <div>
+                <h1>SITTA</h1>
+                <p>Sistem Informasi Tiras dan Transaksi Bahan Ajar</p>
+            </div>
+        </div>
+
+        <button type="button" id="logoutBtn" class="logout-btn">
+            logout
+        </button>
+    </header>
+
+    <!-- NAVIGASI UTAMA -->
+    <nav class="dashboard-nav" aria-label="Navigasi utama">
+        <a href="dashboard.html" class="active">Dashboard</a>
+
+        <a href="stok.html">Informasi Bahan Ajar</a>
+
+        <a href="tracking.html">Tracking Pengiriman</a>
+
+        <!-- MENU LAPORAN DENGAN SUBMENU -->
+        <div class="nav-dropdown">
+            <button type="button" class="nav-dropdown-btn" aria-expanded="false">
+                Laporan
+                <span class="dropdown-arrow">&#9662;</span>
+            </button>
+
+            <div class="dropdown-content">
+                <a href="#monitoring">Monitoring Progress DO Bahan Ajar</a>
+                <a href="#rekap">Rekap Bahan Ajar</a>
+            </div>
+        </div>
+
+        <a href="#histori">Histori Transaksi Bahan Ajar</a>
+    </nav>
+
+    <!-- KONTEN UTAMA -->
+    <main class="dashboard-content">
+
+        <!-- SAPAAN PENGGUNA -->
+        <section class="welcome-card">
+            <div>
+                <p class="welcome-label" id="sapaanWaktu">Selamat datang di SITTA</p>
+
+                <h2>
+                    <span id="sapaanWaktu">Selamat datang</span>,
+                    <span id="namaPengguna">Pengguna</span>!
+                </h2>
+
+                <p>
+                    Anda login sebagai
+                    <strong id="rolePengguna">-</strong>
+                    dengan lokasi
+                    <strong id="lokasiPengguna">-</strong>.
+                </p>
+
+                <p class="welcome-description">
+                    Pantau informasi bahan ajar, pengiriman, dan laporan
+                    transaksi melalui dashboard SITTA.
+                </p>
+            </div>
+
+            <div class="brand-logo">
+                <img src="assets/logo-ut-small-transparent-300x226.png" alt="Logo Universitas Terbuka">
+            </div>
+        </section>
+
+        <!-- RINGKASAN DATA -->
+        <section class="summary-section">
+            <h2 class="section-title">Ringkasan Data</h2>
+
+            <div class="summary-grid">
+
+                <article class="summary-card">
+                    <div class="summary-icon">BA</div>
+                    <div>
+                        <p>Total Jenis Bahan Ajar</p>
+                        <h3 id="totalBahanAjar">0</h3>
+                        <span>Data bahan ajar</span>
+                    </div>
+                </article>
+
+                <article class="summary-card">
+                    <div class="summary-icon">ST</div>
+                    <div>
+                        <p>Total Stok Bahan Ajar</p>
+                        <h3 id="totalStok">0</h3>
+                        <span>Eksemplar tersedia</span>
+                    </div>
+                </article>
+
+                <article class="summary-card">
+                    <div class="summary-icon">DO</div>
+                    <div>
+                        <p>Total Data Pengiriman</p>
+                        <h3 id="totalPengiriman">0</h3>
+                        <span>Data nomor DO</span>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Pop-up Konfirmasi Logout -->
+        <div id="popupLogout" class="popup-overlay">
+            <div class="popup-box">
+                <h3>Konfirmasi Logout</h3>
+                <p>Apakah Anda yakin ingin logout?</p>
+
+                <div class="popup-buttons">
+                    <button id="batalLogout" class="btn-batal">
+                        Batalkan
+                    </button>
+
+                    <button id="konfirmasiLogout" class="btn-konfirmasi">
+                        Logout
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pop-up berhasil menambahkan buku -->
+        <div id="popupBerhasil" class="popup-overlay">
+            <div class="popup-box">
+                <h3>Berhasil!</h3>
+                <p>Buku telah berhasil ditambahkan.</p>
+                <button id="tutupPopup" type="button">OK</button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="dashboard-footer">
+        <p>
+            &copy; 2026 SITTA - Sistem Informasi Tiras dan Transaksi
+            Bahan Ajar Universitas Terbuka
+        </p>
+    </footer>
+
+</body>
+
+</html>

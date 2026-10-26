@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracking DO - SITTA</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/data.js" defer></script>
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+    <header class="dashboard-header">
+        <div class="header-brand">
+            <div class="brand-logo">
+                <img src="assets/logo-ut-small-transparent-300x226.png" alt="Logo Universitas Terbuka">
+            </div>
+            <div>
+                <h1>SITTA</h1>
+                <p>Sistem Informasi Tiras dan Transaksi Bahan Ajar</p>
+            </div>
+        </div>
+        <button type="button" id="logoutBtn" class="btn-logout">Logout</button>
+    </header>
+
+    <nav class="dashboard-nav">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="tracking.html" class="active">Tracking DO</a>
+        <a href="stok.html">Stok Bahan Ajar</a>
+    </nav>
+
+    <main class="dashboard-content">
+        <section class="content-card">
+            <h2>Tracking Delivery Order</h2>
+            <p>Masukkan nomor DO untuk melihat informasi pengiriman bahan ajar.</p>
+
+            <form id="trackingForm" class="tracking-form">
+                <div class="form-group">
+                    <label for="nomorDO">Nomor Delivery Order (DO)</label>
+                    <input type="text" id="nomorDO" placeholder="Contoh: 2023001114" required>
+                </div>
+                <button type="submit" class="btn-primary">Lacak Pengiriman</button>
+            </form>
+
+            <p id="trackingMessage" class="tracking-message" role="status"></p>
+        </section>
+
+        <section id="trackingResult" class="content-card tracking-result" hidden>
+            <h2>Informasi Pengiriman</h2>
+
+            <div class="tracking-info">
+                <p>Nomor DO: <strong id="hasilNomorDO"></strong></p>
+                <p>Nama Penerima: <strong id="hasilNama"></strong></p>
+                <p>Status: <strong id="hasilStatus" class="status-badge"></strong></p>
+                <p>Ekspedisi: <strong id="hasilEkspedisi"></strong></p>
+                <p>Tanggal Kirim: <strong id="hasilTanggal"></strong></p>
+                <p>Kode Paket: <strong id="hasilPaket"></strong></p>
+                <p>Total Pembayaran: <strong id="hasilTotal"></strong></p>
+            </div>
+
+            <h3>Riwayat Perjalanan</h3>
+            <div id="riwayatPerjalanan" class="timeline"></div>
+        </section>
+
+        <!-- Pop-up Konfirmasi Logout -->
+        <div id="popupLogout" class="popup-overlay">
+            <div class="popup-box">
+                <h3>Konfirmasi Logout</h3>
+                <p>Apakah Anda yakin ingin logout?</p>
+
+                <div class="popup-buttons">
+                    <button id="batalLogout" class="btn-batal">
+                        Batalkan
+                    </button>
+
+                    <button id="konfirmasiLogout" class="btn-konfirmasi">
+                        Logout
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+</body>
+
+</html>
